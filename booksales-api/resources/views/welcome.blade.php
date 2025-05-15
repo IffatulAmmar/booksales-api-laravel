@@ -62,27 +62,27 @@
         </div>
     </section>
 
-    <!-- Genre Highlight -->
-    <section class="py-5 bg-light">
-        <div class="container text-center">
-            <h2 class="mb-4">Genre Populer</h2>
-            <div class="row justify-content-center">
-                <div class="col-6 col-sm-3 mb-3">
-                    <div class="border p-3 rounded">Fiksi</div>
+<!-- Genre Highlight -->
+<section class="py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="mb-4">Genre Populer</h2>
+        <div class="row justify-content-center">
+            @if(isset($genres) && $genres->count())
+                @foreach($genres as $genre)
+                    <div class="col-6 col-sm-3 mb-3">
+                        <div class="border p-3 rounded">{{ $genre->name }}</div>
+                    </div>
+                @endforeach
+            @else
+                <div class="col-12">
+                    <p class="text-muted">Belum ada genre yang tersedia.</p>
                 </div>
-                <div class="col-6 col-sm-3 mb-3">
-                    <div class="border p-3 rounded">Non-Fiksi</div>
-                </div>
-                <div class="col-6 col-sm-3 mb-3">
-                    <div class="border p-3 rounded">Bisnis</div>
-                </div>
-                <div class="col-6 col-sm-3 mb-3">
-                    <div class="border p-3 rounded">Anak & Remaja</div>
-                </div>
-            </div>
-            <a href="{{ url('/genres') }}" class="btn btn-outline-primary mt-3">Lihat Semua Genre</a>
+            @endif
         </div>
-    </section>
+        <a href="{{ url('/genres') }}" class="btn btn-outline-primary mt-3">Lihat Semua Genre</a>
+    </div>
+</section>
+
 
     <!-- Footer -->
     <footer class="text-center text-muted">

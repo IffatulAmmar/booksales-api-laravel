@@ -14,16 +14,18 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <ul class="list-group">
-                    @forelse ($genres as $item)
-                        <li class="list-group-item">
-                            <strong>ID:</strong> {{ $item['id'] }} <br>
-                            <strong>Nama Genre:</strong> {{ $item['name'] }}
-                        </li>
-                    @empty
+                    @if ($genres->count())
+                        @foreach ($genres as $item)
+                            <li class="list-group-item">
+                                <strong>Nama Genre:</strong> {{ $item->name }} <br>
+                                <strong>Deskripsi:</strong> {{ $item->description }}
+                            </li>
+                        @endforeach
+                    @else
                         <li class="list-group-item text-center text-muted">
                             Belum ada genre yang tersedia.
                         </li>
-                    @endforelse
+                    @endif
                 </ul>
             </div>
         </div>

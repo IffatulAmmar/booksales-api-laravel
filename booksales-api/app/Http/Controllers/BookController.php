@@ -11,7 +11,7 @@ class BookController extends Controller
         $books = Book::with(['author', 'genre'])->get();
             return response()-> json([
             "success" => true,
-            "message" => "Get All Genres",
+            "message" => "Get All Books",
             "data" => $books
         ],200);
         // return view('books', compact('books'));
